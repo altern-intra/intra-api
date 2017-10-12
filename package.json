@@ -4,6 +4,7 @@
   "description": "An Epitech Intranet API Node Wrapper",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "test": "jest"
   },
   "repository": {
@@ -18,5 +19,19 @@
   "bugs": {
     "url": "https://github.com/Wats0ns/intra-api/issues"
   },
-  "homepage": "https://github.com/Wats0ns/intra-api#readme"
+  "homepage": "https://github.com/Wats0ns/intra-api#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb": "^16.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "fs": "0.0.1-security",
+    "jest": "^21.2.1"
+  }
 }
