@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 const rp = require('request-promise');
 
 const Planning = require('./lib/planning');
@@ -19,7 +19,7 @@ class Intranet {
     });
   }
 }
-// 
+//
 // const test = new Intranet(process.env.AUTOLOGIN_TOKEN);
 //
 // test
