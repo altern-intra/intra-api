@@ -1,0 +1,22 @@
+{
+  "name": "intra-api",
+  "version": "1.0.0",
+  "description": "An Epitech Intranet API Node Wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Wats0ns/intra-api.git"
+  },
+  "keywords": [
+    "Epitech"
+  ],
+  "author": "Wats0ns",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wats0ns/intra-api/issues"
+  },
+  "homepage": "https://github.com/Wats0ns/intra-api#readme"
+}
