@@ -10,21 +10,33 @@ class Intranet {
     this.planning = new Planning(this);
   }
 
-  fetch(endpoint, method = 'GET', data = {}) {
+  fetch(endpoint, data = {}) {
     return rp({
       uri: `${this.baseUrl}${endpoint}?format=json`,
-      method,
+      method: 'GET',
+      qs: data,
+      json: true,
+    });
+  }
+
+  submit(endpoint, data = {}) {
+    return rp({
+      uri: `${this.baseUrl}${endpoint}?format=json`,
+      method: 'POST',
       body: data,
       json: true,
     });
   }
 }
-//
+
 // const test = new Intranet(process.env.AUTOLOGIN_TOKEN);
 //
 // test
 //   .planning
-//   .get()
+//   .get({
+//     startDate: "2017-10-14",
+//     endDate: "2017-10-15"
+//   })
 //   .then((res) => {
 //     console.log(res);
 //     const fs = require('fs')
