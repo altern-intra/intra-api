@@ -2,12 +2,15 @@ require('dotenv').config();
 const rp = require('request-promise');
 
 const Planning = require('./lib/planning');
+const User = require('./lib/user');
 
 class Intranet {
-  constructor(autologinToken) {
+  constructor(autologinToken, login) {
+    this.login = login
     this.autologinToken = autologinToken;
     this.baseUrl = `https://intra.epitech.eu/${autologinToken}`;
     this.planning = new Planning(this);
+    this.user = new User(this);
   }
 
   fetch(endpoint, data = {}) {
@@ -29,7 +32,16 @@ class Intranet {
   }
 }
 
-// const test = new Intranet(process.env.AUTOLOGIN_TOKEN);
+// const test = new Intranet(process.env.AUTOLOGIN_TOKEN, process.env.USER_EMAIL);
+// test
+//   .user
+//   .documents()
+//   .then((res) => {
+//     console.log(res)
+//   })
+//   .catch((err) => {
+//     throw err
+//   })
 //
 // test
 //   .planning
