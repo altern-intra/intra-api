@@ -8,7 +8,7 @@ Just a ```npm install```
 
 # Usage
 ```javascript
-const Intra = new Intranet(autologinToken);
+const Intra = new Intranet(autologinToken, login);
 
 Intra
   .planning
@@ -27,5 +27,6 @@ Yes, you have to provide your autologin-token, as it is not possible to connect 
 We use Facebook's jest, so ```npm test``` will be enough to test the application. Note that to ensure you are logged, please fill a `.env` file at the project's root with the following content:
 ```
 AUTOLOGIN_TOKEN=your_token
+USER_EMAIL=your_email@epitech.eu
 ```
 where your\_token is, of course, your autologin token. In order to avoid an overload of the original Intranet, the API calls are proxied so that the results from the JSON files in the `test` directory are returned instead of making a real API call

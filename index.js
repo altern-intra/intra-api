@@ -5,7 +5,8 @@ const Planning = require('./lib/planning');
 const User = require('./lib/user');
 
 class Intranet {
-  constructor(autologinToken) {
+  constructor(autologinToken, login) {
+    this.login = login
     this.autologinToken = autologinToken;
     this.baseUrl = `https://intra.epitech.eu/${autologinToken}`;
     this.planning = new Planning(this);
@@ -31,10 +32,10 @@ class Intranet {
   }
 }
 
-// const test = new Intranet(process.env.AUTOLOGIN_TOKEN);
+// const test = new Intranet(process.env.AUTOLOGIN_TOKEN, process.env.USER_EMAIL);
 // test
 //   .user
-//   .me()
+//   .documents()
 //   .then((res) => {
 //     console.log(res)
 //   })
