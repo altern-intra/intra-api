@@ -1,3 +1,5 @@
+[![NPM](https://nodei.co/npm/intra-api.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/intra-api/)
+
 # intra-api
 An Epitech Intranet API Node Wrapper that works. All of the others I found where not maintained anymore, so I hope this ones with last. At least, it is the only one working with the new authentification systels
 
