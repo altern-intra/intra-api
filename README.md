@@ -5,7 +5,7 @@ An Epitech Intranet API Node Wrapper that works. All of the others I found where
 Just a ```npm install```
 
 # Usage
-```
+```javascript
 const Intra = new Intranet(autologinToken);
 
 Intra
