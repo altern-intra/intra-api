@@ -26,10 +26,10 @@ class Intranet {
 
   submit(endpoint, data = {}) {
     return rp({
-      uri: `${this.baseUrl}${endpoint}?format=json`,
+      url: `${this.baseUrl}${endpoint}?format=json`,
       method: 'POST',
       body: data,
-      json: true,
+      json: true
     });
   }
 }
