@@ -3,14 +3,27 @@ const rp = require('request-promise');
 
 const Planning = require('./lib/planning');
 const User = require('./lib/user');
+const Projects = require('./lib/projects');
+const Units = require('./lib/units.js');
 
 class Intranet {
   constructor(autologinToken, login) {
-    this.login = login
+    this.login = login;
     this.autologinToken = autologinToken;
     this.baseUrl = `https://intra.epitech.eu/${autologinToken}`;
     this.planning = new Planning(this);
     this.user = new User(this);
+    this.projects = new Projects(this);
+    this.units = new Units(this);
+    // Instances list
+    this.instances = [
+      'FR', // global instance
+      'FR/LYN', // Lyon
+      'FR/MAR', // Marseille
+      'FR/PAR', // Paris
+      'FR/NCY', // Nancy
+      'FR/LIL', // Lille
+    ];
   }
 
   fetch(endpoint, data = {}) {
@@ -24,40 +37,12 @@ class Intranet {
 
   submit(endpoint, data = {}) {
     return rp({
-      uri: `${this.baseUrl}${endpoint}?format=json`,
+      url: `${this.baseUrl}${endpoint}?format=json`,
       method: 'POST',
       body: data,
       json: true,
     });
   }
 }
-
-// const test = new Intranet(process.env.AUTOLOGIN_TOKEN, process.env.USER_EMAIL);
-// test
-//   .user
-//   .documents()
-//   .then((res) => {
-//     console.log(res)
-//   })
-//   .catch((err) => {
-//     throw err
-//   })
-//
-// test
-//   .planning
-//   .get({
-//     startDate: "2017-10-14",
-//     endDate: "2017-10-15"
-//   })
-//   .then((res) => {
-//     console.log(res);
-//     const fs = require('fs')
-//     fs.writeFile('output.json', JSON.stringify(res), (err, res) => {
-//
-//     })
-//   })
-//   .catch((err) => {
-//     console.error(err);
-//   });
 
 module.exports = Intranet;
