@@ -1,6 +1,6 @@
 {
   "name": "intra-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An Epitech Intranet API Node Wrapper",
   "main": "index.js",
   "scripts": {
