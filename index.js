@@ -5,6 +5,7 @@ const Planning = require('./lib/planning');
 const User = require('./lib/user');
 const Projects = require('./lib/projects');
 const Units = require('./lib/units.js');
+const Events = require('./lib/events.js');
 
 class Intranet {
   constructor(autologinToken, login) {
@@ -15,6 +16,7 @@ class Intranet {
     this.user = new User(this);
     this.projects = new Projects(this);
     this.units = new Units(this);
+    this.events = new Events(this);
     // Instances list
     this.instances = [
       'FR', // global instance
