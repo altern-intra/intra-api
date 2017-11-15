@@ -18,6 +18,7 @@ class Intranet {
     this.units = new Units(this);
     this.events = new Events(this);
     // Instances list
+    // This is not an exhaustive list as there is no known endpoints to feth instances
     this.instances = [
       'FR', // global instance
       'FR/LYN', // Lyon
