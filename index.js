@@ -1,11 +1,14 @@
 require('dotenv').config();
 const rp = require('request-promise');
+const logger = require('winston');
 
 const Planning = require('./lib/planning');
 const User = require('./lib/user');
 const Projects = require('./lib/projects');
 const Units = require('./lib/units.js');
 const Events = require('./lib/events.js');
+
+logger.level = process.env.LOG_LEVEL || 'info';
 
 class Intranet {
   constructor(autologinToken, login) {
@@ -30,20 +33,38 @@ class Intranet {
   }
 
   fetch(endpoint, data = {}) {
-    return rp({
-      uri: `${this.baseUrl}${endpoint}?format=json`,
-      method: 'GET',
-      qs: data,
-      json: true,
+    logger.info(`GET ${endpoint} - ${JSON.stringify(data)}`);
+    return new Promise((resolve, reject) => {
+      rp({
+        uri: `${this.baseUrl}${endpoint}?format=json`,
+        method: 'GET',
+        qs: data,
+        json: true,
+      }).then((body) => {
+        logger.debug(body);
+        resolve(body);
+      }).catch((err) => {
+        logger.error(`${err.name} - ${err.message}`);
+        reject(err);
+      });
     });
   }
 
   submit(endpoint, data = {}) {
-    return rp({
-      url: `${this.baseUrl}${endpoint}?format=json`,
-      method: 'POST',
-      body: data,
-      json: true,
+    logger.info(`POST ${endpoint} - ${JSON.stringify(data)}`);
+    return new Promise((resolve, reject) => {
+      rp({
+        url: `${this.baseUrl}${endpoint}?format=json`,
+        method: 'POST',
+        body: data,
+        json: true,
+      }).then((body) => {
+        logger.debug(body);
+        resolve(body);
+      }).catch((err) => {
+        logger.error(`${err.name} - ${err.message}`);
+        reject(err);
+      });
     });
   }
 }
