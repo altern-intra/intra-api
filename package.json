@@ -24,6 +24,7 @@
   "homepage": "https://github.com/Wats0ns/intra-api#readme",
   "dependencies": {
     "dotenv": "^4.0.0",
+    "moment": "^2.19.4",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
     "winston": "^2.4.0"
